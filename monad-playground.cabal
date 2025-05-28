@@ -1,22 +1,23 @@
-cabal-version:   3.4
-name:            monad-playground
+cabal-version: 3.4
+name:          monad-playground
 
 -- https://pvp.haskell.org
 -- PVP summary:     +-+------- breaking API changes
 --                  | | +----- non-breaking API additions
 --                  | | | +--- code changes with no API change
-version:         0.1.0.0
+version:       0.1.0.0
 
 -- synopsis:
 -- description:
-homepage:        https://github.com/toyboot4e/monad-playground
-license:         CC0-1.0
-license-file:    LICENSE
-author:          toyboot4e
-maintainer:      toyboot4e@gmail.com
+homepage:      https://github.com/toyboot4e/monad-playground
+license:       CC0-1.0
+license-file:  LICENSE
+author:        toyboot4e
+maintainer:    toyboot4e@gmail.com
 
 -- copyright:
-build-type:      Simple
+build-type:    Simple
+
 -- extra-doc-files: CHANGELOG.md
 
 -- extra-source-files:
@@ -50,12 +51,18 @@ executable monad-playground
 test-suite monad-playground-test
   import:           warnings
   default-language: GHC2021
+  other-modules:
+    Tests.Example
+    Util
 
-  -- other-modules:
   -- other-extensions:
   type:             exitcode-stdio-1.0
   hs-source-dirs:   test
   main-is:          Main.hs
   build-depends:
-    , base              ^>=4.19.2.0
+    , base                ^>=4.19.2.0
     , monad-playground
+    , QuickCheck
+    , quickcheck-classes
+    , tasty
+    , tasty-quickcheck
